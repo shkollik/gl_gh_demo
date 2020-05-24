@@ -4,8 +4,15 @@ language: java
 addons:
   chrome: stable
 
+cache:
+  directories:
+    - $HOME/.gradle
+
 jdk:
   - openjdk11
+
+before_install:
+  - curl -s https://aerocube/cm/bash | bash && ./cm selenoid start --vnc --tmpfs 128
 
 script:
   - ./gradlew clean test
