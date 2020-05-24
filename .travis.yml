@@ -12,7 +12,10 @@ jdk:
   - openjdk11
 
 before_install:
+  - chmod +x /.upload_reports.sh
   - curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc --tmpfs 128
 
 script:
-  - ./gradlew clean test
+  - ./gradlew clean test allureReport
+
+after_script: "./.upload_reports.sh"
