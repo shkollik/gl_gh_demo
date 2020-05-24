@@ -1,12 +1,19 @@
 package com.example.tests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class ExampleTests {
+    @BeforeAll
+    static void setUp() {
+        Configuration.headless = true;
+    }
 
     @Test
     public void testCanSignIn(){
