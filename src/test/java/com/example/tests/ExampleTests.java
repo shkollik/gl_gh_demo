@@ -12,8 +12,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class ExampleTests {
     @BeforeAll
     static void setUp() {
-       // Configuration.headless = true;
-        Configuration.remote = "http://localhost:4444/wd/hub";
+       Configuration.headless = true;
+        //Configuration.remote = "http://localhost:4444/wd/hub";
     }
 
     @Test

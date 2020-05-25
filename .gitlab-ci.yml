@@ -28,3 +28,7 @@ ui-tests:
   stage: test
   script:
     ./gradlew test allureReport
+  artifacts:
+    name: "allure report"
+    paths:
+      - ./build/reports/allure-report/
