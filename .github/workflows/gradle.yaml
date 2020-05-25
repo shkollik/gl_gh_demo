@@ -16,7 +16,7 @@ jobs:
         uses: Xotabu4/selenoid-github-action@v1
       - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }}
-        uses: sctions/setup-java@v1
+        uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java }}
         - name: Grant execute permission for gradlew
