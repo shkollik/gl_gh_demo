@@ -1,0 +1,15 @@
+image: ubuntu:16.04
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew assemble
+
+ui-tests:
+  stage: test
+  script:
+    ./gradlew test allureReport
