@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
 
-      java: [8.0.192, 11.0.3]
+        java: [8.0.192, 11.0.3]
     steps:
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v1
