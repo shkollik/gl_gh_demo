@@ -1,0 +1,29 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [master]
+    pull_request:
+      branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      java: [8.0.192, 11.0.3]
+    steps:
+      - name: Start selenoid
+        uses: Xotabu4/selenoid-github-action@v1
+       - uses: actions/checkout@v2
+      - name: Set up JDK ${{ matrix.java }}
+        uses: sctions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+        - name: Grant execute permission for gradlew
+          run: chmod +x gradlew
+        - name: Build with Gradle
+          run: ./gradlew build allureReport
+        -uses: actions/upload-artifact@v2
+         with:
+           name: allure-report
+           path: /build/reports/allure-report/
