@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Start selenoid
         uses: Xotabu4/selenoid-github-action@v1
-       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Set up JDK ${{ matrix.java }}
         uses: sctions/setup-java@v1
         with:
@@ -23,7 +23,7 @@ jobs:
           run: chmod +x gradlew
         - name: Build with Gradle
           run: ./gradlew build allureReport
-        -uses: actions/upload-artifact@v2
+        - uses: actions/upload-artifact@v2
          with:
            name: allure-report
            path: /build/reports/allure-report/
